@@ -1,0 +1,32 @@
+---
+title: "Assignment:R markdown and leaflet"
+author: "Kelvin"
+date: "11/15/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(leaflet)
+```
+**##15 November 2020**
+```{r,echo=FALSE}
+popuplabel= c("Sibu, Sarawak", 	"Kuala Lumpur",	"Teluk Intan, Perak", 	"Kuantan, Pahang", 	"Kuala Lipis, Pahang", 	"Pasir Mas, Kelantan", 	"Mersing, Johor", 	"Kota Belud, Sabah", 	"Petaling Jaya, Selangor", 	"Alor Setar, Kedah", 	"Kelantan City, Kelantan", 	"Miri, Sarawak", 	"Ipoh, Perak", 	"Kudat, Sabah", 	"Arau, Perlis", 	"Gua Musang, Kelantan", 	"Bentong, Pahang", 	"Jerantut, Pahang", 	"Gurun, Kedah", 	"Port Dickson, Negeri Sembilan", 	"Puchong, Selangor", 	"Klang, Selangor", 	"Pontian District, Johor", 	"Malacca, Melaka", 	"Kota Bharu, Kelantan", 	"Kajang, Selangor", 	"Kulim, Kedah", 	"Kuching, Sarawak", 	"George Town, Penang", 	"Muar town, Johor")
+                         
+lat = c(2.287778,	3.140853,	4.022424,	3.763386,	4.18433,	6.043437,	2.430917,	6.353248,	3.127887,	6.1248,	6.127463,	4.399493,	4.597479,	6.88684,	6.429708,	4.884279,	3.522168,	3.937395,	5.819947,	2.52254,	3.02534,	3.044917,	1.485561,	2.200844,	6.139872,	3.000984,	5.38945,	1.55311,	5.4253,	2.039272)
+                        
+lng = c(111.830833,	101.693207,	101.020622,	103.220184,	102.05423,	102.141991,	103.836113,116.427879,	101.59449,	100.367821,	102.242287,	113.991386,	101.090103,116.82531,100.269844,	101.968178,	101.910355,	102.362038,	100.47728,	101.796295,	101.617767,	101.445564,	103.387856,	102.240143,	102.242203,101.787125,	100.563431,	110.345032,	100.312386,	102.569092)
+
+
+testing<- data.frame(popuplabel, lat, lng)
+testing <- leaflet() %>%
+  addTiles() %>%  
+  addCircleMarkers(lat=lat, lng=lng, popup = popuplabel)
+testing
+```
+
+
